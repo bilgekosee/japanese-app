@@ -5,23 +5,3 @@
   padding: 20px;
   justify-items: center;
 }
-
-.hira-box {
-  background-color: #f9f9f9;
-  padding: 10px;
-  border-radius: 12px;
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  transition: transform 0.2s ease;
-}
-
-.hira-box:hover {
-  transform: scale(1.05);
-}
-
-.kana-label {
-  margin-top: 6px;
-  font-size: 14px;
-  font-weight: bold;
-  font-family: "Courier New", monospace;
-}
