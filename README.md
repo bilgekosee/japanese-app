@@ -1,4 +1,10 @@
-# React + Vite
+## Selamlar oyunda karakter çizimleri için pixel studio kullandım aşağıdaki linkten çizimlere ulaşabilirsiniz.
+## Hello! I used Pixel Studio for the character designs in the game. You can check out the drawings at the link below.
+# [pixel-art](https://tr.pinterest.com/bilgekoosee/pixel-art/)
+
+## DEMO
+# [japanese-app](https://bk-japanese-app.netlify.app/)
+
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
