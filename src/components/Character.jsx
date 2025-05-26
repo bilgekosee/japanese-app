@@ -27,7 +27,13 @@ const Character = ({ name, img, phrase, bubbleType, index, side }) => {
   const style = {
     position: "absolute",
     top: `${index * 25 + 10}%`,
-    [side]: isSmallScreen ? "10px" : side === "right" ? "-120px" : "-123px",
+    [side]: isSmallScreen
+      ? side === "right"
+        ? "-75px"
+        : "-66px"
+      : side === "right"
+      ? "-120px"
+      : "-123px",
   };
 
   return (
