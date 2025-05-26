@@ -4,6 +4,11 @@ const HiraCanvas = ({ src, label }) => {
   const canvasRef = useRef();
   const [showRomanji, setShowRomanji] = useState(false);
 
+  const playSound = () => {
+    const audio = new Audio(`/pronunciation/${label}.mp3`);
+    audio.play();
+  };
+
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
@@ -24,7 +29,10 @@ const HiraCanvas = ({ src, label }) => {
   return (
     <div
       className="hira-container"
-      onClick={() => setShowRomanji(!showRomanji)}
+      onClick={() => {
+        setShowRomanji(!showRomanji);
+        playSound();
+      }}
     >
       {showRomanji && (
         <img
