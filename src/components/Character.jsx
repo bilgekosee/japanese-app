@@ -4,12 +4,28 @@ const Character = ({ name, img, phrase, bubbleType, index, side }) => {
   const [showBubble, setShowBubble] = useState(false);
   const bubbleImg = bubbleType === 1 ? "/baloncuk1.png" : "/baloncuk2.png";
 
+  const handleClick = () => {
+    setShowBubble(true);
+    playSoundChar(name);
+
+    setTimeout(() => {
+      setShowBubble(false);
+    }, 2000);
+  };
+
   const playSoundChar = (name) => new Audio(`sounds/${name}.mp3`).play();
+  const isSmallScreen = window.innerWidth <= 430;
 
   const style = {
     position: "absolute",
     top: `${index * 25 + 10}%`,
-    [side]: side === "right" ? "-120px" : "-123px",
+    [side]: isSmallScreen
+      ? side === "right"
+        ? "-75px"
+        : "-66px"
+      : side === "right"
+      ? "-120px"
+      : "-123px",
   };
 
   return (
@@ -24,10 +40,7 @@ const Character = ({ name, img, phrase, bubbleType, index, side }) => {
         src={img}
         alt={name}
         className="character-img"
-        onClick={() => {
-          setShowBubble(!showBubble);
-          playSoundChar(name);
-        }}
+        onClick={handleClick}
       />
     </div>
   );

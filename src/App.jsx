@@ -95,6 +95,7 @@ function App() {
 
   return (
     <div className="hira-wrapper">
+      <span className="title-hiragana">Hiragana</span>
       <div className="character-column left">
         {leftCharacters.map((char, i) => (
           <Character
