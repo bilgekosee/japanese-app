@@ -1,7 +1,7 @@
 import "./App.css";
 import HiraCanvas from "./components/HiraCanvas";
 function App() {
-  const kanaList = [
+  const hiraList = [
     "a",
     "i",
     "u",
@@ -51,10 +51,12 @@ function App() {
   ];
 
   return (
-    <div className="hira-grid">
-      {kanaList.map((hira) => (
-        <HiraCanvas key={hira} src={`/hiragana/${hira}.png`} />
-      ))}
+    <div className="hira-wrapper">
+      <div className="hira-grid">
+        {hiraList.map((hira) => (
+          <HiraCanvas key={hira} src={`/hiragana/${hira}.png`} label={hira} />
+        ))}
+      </div>
     </div>
   );
 }

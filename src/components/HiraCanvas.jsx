@@ -1,7 +1,8 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 
-const HiraCanvas = ({ src }) => {
+const HiraCanvas = ({ src, label }) => {
   const canvasRef = useRef();
+  const [showRomanji, setShowRomanji] = useState(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -11,15 +12,27 @@ const HiraCanvas = ({ src }) => {
     img.src = src;
 
     img.onload = () => {
-      canvas.width = img.width;
-      canvas.height = img.height;
+      const scale = 4;
+      canvas.width = img.width * scale;
+      canvas.height = img.height * scale;
+      ctx.imageSmoothingEnabled = false;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(img, 0, 0);
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     };
   }, [src]);
 
   return (
-    <div className="hira-container">
+    <div
+      className="hira-container"
+      onClick={() => setShowRomanji(!showRomanji)}
+    >
+      {showRomanji && (
+        <img
+          src={`/romaji/${label}.png`}
+          alt={label}
+          style={{ marginTop: "6px", width: "64px" }}
+        />
+      )}
       <canvas ref={canvasRef}></canvas>
     </div>
   );
