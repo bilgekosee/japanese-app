@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Character = ({ name, img, phrase, bubbleType, index, side }) => {
   const [showBubble, setShowBubble] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 430);
   const bubbleImg = bubbleType === 1 ? "/baloncuk1.png" : "/baloncuk2.png";
 
   const handleClick = () => {
@@ -12,9 +13,16 @@ const Character = ({ name, img, phrase, bubbleType, index, side }) => {
       setShowBubble(false);
     }, 2000);
   };
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 430);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const playSoundChar = (name) => new Audio(`sounds/${name}.mp3`).play();
-  const isSmallScreen = window.innerWidth <= 430;
 
   const style = {
     position: "absolute",
