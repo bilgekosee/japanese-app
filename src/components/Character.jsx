@@ -6,10 +6,6 @@ const Character = ({ name, img, phrase, bubbleType, index, side }) => {
     typeof window !== "undefined" ? window.innerWidth <= 430 : false
   );
 
-  const [isXSmallScreen, setIsXSmallScreen] = useState(() =>
-    typeof window !== "undefined" ? window.innerWidth < 400 : false
-  );
-
   const bubbleImg = bubbleType === 1 ? "/baloncuk1.png" : "/baloncuk2.png";
 
   const handleClick = () => {
@@ -23,7 +19,6 @@ const Character = ({ name, img, phrase, bubbleType, index, side }) => {
   useEffect(() => {
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth <= 430);
-      setIsXSmallScreen(window.innerWidth < 400);
     };
 
     window.addEventListener("resize", handleResize);
@@ -35,11 +30,7 @@ const Character = ({ name, img, phrase, bubbleType, index, side }) => {
   const style = {
     position: "absolute",
     top: `${index * 25 + 10}%`,
-    [side]: isXSmallScreen
-      ? side === "right"
-        ? "-36px"
-        : "-30px"
-      : isSmallScreen
+    [side]: isSmallScreen
       ? side === "right"
         ? "-75px"
         : "-66px"

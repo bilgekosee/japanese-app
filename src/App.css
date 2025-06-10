@@ -152,17 +152,3 @@ body {
     image-rendering: pixelated;
   }
 }
-@media (max-width: 400px) {
-  .hira-grid {
-    display: grid;
-    grid-template-columns: auto auto;
-  }
-  .hira-container {
-    width: 47px;
-    height: 66px;
-  }
-  .character-img {
-    width: 60px;
-    image-rendering: pixelated;
-  }
-}
