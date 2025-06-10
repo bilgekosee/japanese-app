@@ -2,7 +2,8 @@ body {
   margin: 0;
   padding: 0;
   background: url("/japan.png") center center no-repeat fixed;
-  background-size: contain;
+  background-size: cover;
+  overflow-x: auto;
   background-color: #fefefe;
   font-family: "Courier New", monospace;
 }
